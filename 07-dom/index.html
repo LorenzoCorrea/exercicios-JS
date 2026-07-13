@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Módulo 7 — DOM</title>
+  <style>
+    body { font-family: sans-serif; max-width: 500px; margin: 40px auto; }
+    button { padding: 8px 16px; margin: 4px; cursor: pointer; }
+    .destaque { background: yellow; }
+    .escuro { background: #222; color: #eee; }
+  </style>
+</head>
+<body>
+  <h1 id="titulo">Aprendendo DOM</h1>
+  <p class="mensagem">Clique nos botões e veja a mágica.</p>
+
+  <button id="btn-mudar-texto">Mudar texto</button>
+  <button id="btn-destacar">Destacar parágrafo</button>
+  <button id="btn-tema">Tema escuro</button>
+
+  <hr />
+
+  <h2>Contador: <span id="contador">0</span></h2>
+  <button id="btn-mais">+1</button>
+  <button id="btn-menos">-1</button>
+
+  <hr />
+
+  <input id="campo-nome" placeholder="Digite seu nome" />
+  <button id="btn-saudar">Saudar</button>
+  <p id="saudacao"></p>
+
+  <script src="index.js"></script>
+</body>
+</html>
