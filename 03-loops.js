@@ -15,9 +15,9 @@
 // CUIDADO: se a condição nunca virar false = loop infinito!
 
 // --- EXEMPLO ---
-for (let i = 1; i <= 3; i++) {
-  console.log(`Volta número ${i}`);
-}
+// for (let i = 1; i <= 3; i++) {
+//   console.log(`Volta número ${i}`);
+// }
 // Volta número 1
 // Volta número 2
 // Volta número 3
@@ -25,13 +25,19 @@ for (let i = 1; i <= 3; i++) {
 // ========================================================
 // ✏️ EXERCÍCIO 1
 // Use um for para mostrar os números de 1 a 10 no console.
+// for (let i = 1; i < 11; i++) {
+//   console.log(i);
+// }
 
 // ========================================================
 // ✏️ EXERCÍCIO 2
 // Contagem regressiva de foguete: mostre 5, 4, 3, 2, 1
 // e depois "🚀 Decolar!".
 // Dica: dá pra fazer o for de trás pra frente com i--
-
+// for (let i = 5; i >= 1; i--) {
+//   console.log(i);
+// }
+// console.log("🚀 Decolar!");
 // ========================================================
 // ✏️ EXERCÍCIO 3
 // Tabuada: crie uma variável `n` e mostre a tabuada dela.
@@ -39,6 +45,11 @@ for (let i = 1; i <= 3; i++) {
 //   7 x 1 = 7
 //   7 x 2 = 14
 //   ... até 7 x 10 = 70
+const n = 7;
+for (let i = 1; i <= 10; i++) {
+  let resultado = numero * i;
+  console.log(`${numero} x ${i} = ${resultado}`);
+}
 
 // ========================================================
 // ✏️ EXERCÍCIO 4
