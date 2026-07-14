@@ -45,17 +45,21 @@
 //   7 x 1 = 7
 //   7 x 2 = 14
 //   ... até 7 x 10 = 70
-const n = 7;
-for (let i = 1; i <= 10; i++) {
-  let resultado = n * i;
-  console.log(`${n} x ${i} = ${resultado}`);
-}
+// const n = 7;
+// for (let i = 1; i <= 10; i++) {
+//   let resultado = n * i;
+//   console.log(`${n} x ${i} = ${resultado}`);
+// }
 
-// ========================================================
+// // ========================================================
 // ✏️ EXERCÍCIO 4
 // Some todos os números de 1 até 100 usando um loop.
 // Dica: crie let soma = 0 ANTES do loop e vá acumulando.
 // Resposta certa: 5050
+let soma = 0;
+for (let i = 1; i >= 100){
+  console.log(soma)
+}
 
 // ========================================================
 // ✏️ EXERCÍCIO 5 (desafio - FizzBuzz, clássico de entrevista!)
