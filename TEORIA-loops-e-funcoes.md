@@ -13,9 +13,12 @@ Para **não copiar e colar código**. Todo loop, se "desenrolado", vira código 
 
 ```js
 // sem loop 😫              // com loop 😎
-console.log(1);             for (let i = 1; i <= 3; i++) {
-console.log(2);               console.log(i);
-console.log(3);             }
+console.log(1);
+for (let i = 1; i <= 3; i++) {
+  console.log(2);
+  console.log(i);
+  console.log(3);
+}
 ```
 
 ## Anatomia do for — as 3 perguntas
@@ -25,6 +28,13 @@ for (let i = 0;  i < 5;  i++) {
      └ 1         └ 2     └ 3
 ```
 
+     // JS — as mesmas 3 informações, só que separadas por ;
+
+for (let i = 5; i >= 1; i--)
+// └ começa └ continua └ passo
+// em 5 enquanto (i-- = i = i - 1)
+// i >= 1
+
 1. **ONDE começa?** `let i = 0` → cria o contador (roda 1 vez só, no início)
 2. **ATÉ quando?** `i < 5` → testado ANTES de cada volta; se der false, o loop acaba
 3. **COMO avança?** `i++` → roda DEPOIS de cada volta (`i++` = `i = i + 1`)
@@ -33,25 +43,25 @@ for (let i = 0;  i < 5;  i++) {
 
 O for do JS é o `range()` de peito aberto:
 
-| Python | JavaScript |
-|---|---|
-| `for i in range(5):` | `for (let i = 0; i < 5; i++)` |
-| `for i in range(1, 11):` | `for (let i = 1; i <= 10; i++)` |
-| `for i in range(10, 0, -1):` | `for (let i = 10; i >= 1; i--)` |
-| `for fruta in frutas:` | `for (let i = 0; i < frutas.length; i++)` e usa `frutas[i]` |
-| `while vidas > 0:` | `while (vidas > 0) {` |
+| Python                       | JavaScript                                                  |
+| ---------------------------- | ----------------------------------------------------------- |
+| `for i in range(5):`         | `for (let i = 0; i < 5; i++)`                               |
+| `for i in range(1, 11):`     | `for (let i = 1; i <= 10; i++)`                             |
+| `for i in range(10, 0, -1):` | `for (let i = 10; i >= 1; i--)`                             |
+| `for fruta in frutas:`       | `for (let i = 0; i < frutas.length; i++)` e usa `frutas[i]` |
+| `while vidas > 0:`           | `while (vidas > 0) {`                                       |
 
 ## A técnica que resolve TUDO: tabela de rastreio
 
 Quando um loop confundir, rode ele NA MÃO, volta por volta.
 Exemplo: `for (let i = 1; i <= 3; i++) { console.log(i * 10); }`
 
-| volta | i | `i <= 3`? | o que acontece |
-|-------|---|-----------|----------------|
-| 1ª    | 1 | true ✅   | imprime 10     |
-| 2ª    | 2 | true ✅   | imprime 20     |
-| 3ª    | 3 | true ✅   | imprime 30     |
-| 4ª    | 4 | false ❌  | **loop PARA**  |
+| volta | i   | `i <= 3`? | o que acontece |
+| ----- | --- | --------- | -------------- |
+| 1ª    | 1   | true ✅   | imprime 10     |
+| 2ª    | 2   | true ✅   | imprime 20     |
+| 3ª    | 3   | true ✅   | imprime 30     |
+| 4ª    | 4   | false ❌  | **loop PARA**  |
 
 Faça isso no papel algumas vezes e o loop deixa de ser mágica.
 
@@ -61,11 +71,11 @@ Somar, contar, juntar... o truque é sempre o mesmo:
 **crie a variável ANTES do loop, atualize DENTRO, use DEPOIS.**
 
 ```js
-let soma = 0;                        // 1. ANTES: começa zerada
+let soma = 0; // 1. ANTES: começa zerada
 for (let i = 1; i <= 5; i++) {
-  soma = soma + i;                   // 2. DENTRO: acumula (ou soma += i)
+  soma = soma + i; // 2. DENTRO: acumula (ou soma += i)
 }
-console.log(soma);                   // 3. DEPOIS: 15
+console.log(soma); // 3. DEPOIS: 15
 ```
 
 Rastreio: soma vai valendo 0 → 1 → 3 → 6 → 10 → 15.
@@ -74,9 +84,10 @@ Rastreio: soma vai valendo 0 → 1 → 3 → 6 → 10 → 15.
 
 ```js
 let vidas = 3;
-while (vidas > 0) {      // testa: ainda tem vida?
+while (vidas > 0) {
+  // testa: ainda tem vida?
   console.log(`Vidas: ${vidas}`);
-  vidas--;               // se esquecer esta linha = LOOP INFINITO!
+  vidas--; // se esquecer esta linha = LOOP INFINITO!
 }
 console.log("Game over");
 ```
@@ -95,17 +106,19 @@ console.log("Game over");
 **entra fruta → processa → sai suco**
 
 ```js
-function fazerSuco(fruta) {        //  def fazer_suco(fruta):
-  return `suco de ${fruta}`;       //      return f"suco de {fruta}"
+function fazerSuco(fruta) {
+  //  def fazer_suco(fruta):
+  return `suco de ${fruta}`; //      return f"suco de {fruta}"
 }
 
-fazerSuco("laranja");  // -> "suco de laranja"
-fazerSuco("uva");      // -> "suco de uva"  (mesma máquina, outra entrada!)
+fazerSuco("laranja"); // -> "suco de laranja"
+fazerSuco("uva"); // -> "suco de uva"  (mesma máquina, outra entrada!)
 ```
 
 ## As 3 confusões que travam todo mundo
 
 ### 1. Definir ≠ Executar
+
 Escrever a `function` não roda nada — é só CADASTRAR a receita.
 Ela roda quando você CHAMA: `fazerSuco("uva")`.
 
@@ -120,19 +133,19 @@ gritar(); // de novo! "AAAA!"
 
 ### 2. return ≠ console.log (A confusão clássica)
 
-| | `console.log` | `return` |
-|---|---|---|
-| serve para | MOSTRAR na tela | DEVOLVER o valor para o código |
-| quem usa o valor | o humano (só lê) | o programa (guarda, soma, repassa) |
-| Python equivalente | `print()` | `return` |
+|                    | `console.log`    | `return`                           |
+| ------------------ | ---------------- | ---------------------------------- |
+| serve para         | MOSTRAR na tela  | DEVOLVER o valor para o código     |
+| quem usa o valor   | o humano (só lê) | o programa (guarda, soma, repassa) |
+| Python equivalente | `print()`        | `return`                           |
 
 ```js
 function somar(a, b) {
-  return a + b;              // devolve o resultado
+  return a + b; // devolve o resultado
 }
 
-const total = somar(2, 3);   // o 5 foi GUARDADO em total
-console.log(total * 10);     // 50 — deu pra continuar usando!
+const total = somar(2, 3); // o 5 foi GUARDADO em total
+console.log(total * 10); // 50 — deu pra continuar usando!
 ```
 
 Se `somar` usasse `console.log` em vez de `return`, o 5 apareceria na
@@ -143,12 +156,13 @@ tela e MORRERIA ali — `total` ficaria `undefined`.
 ### 3. Parâmetro = variável que espera valor
 
 ```js
-function dobro(n) {   // n não vale NADA ainda — é um espaço reservado
+function dobro(n) {
+  // n não vale NADA ainda — é um espaço reservado
   return n * 2;
 }
 
-dobro(7);   // na chamada, o JS faz n = 7 automaticamente → 14
-dobro(50);  // agora n = 50 → 100
+dobro(7); // na chamada, o JS faz n = 7 automaticamente → 14
+dobro(50); // agora n = 50 → 100
 ```
 
 - **Parâmetro** = o nome na definição (`n`)
