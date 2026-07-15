@@ -56,10 +56,10 @@
 // Some todos os números de 1 até 100 usando um loop.
 // Dica: crie let soma = 0 ANTES do loop e vá acumulando.
 // Resposta certa: 5050
-let soma = 0;
-for (let i = 1; i >= 100){
-  console.log(soma)
-}
+// let soma = 0;
+// for (let i = 1; i >= 100){
+//   console.log(soma)
+// }
 
 // ========================================================
 // ✏️ EXERCÍCIO 5 (desafio - FizzBuzz, clássico de entrevista!)
@@ -68,3 +68,7 @@ for (let i = 1; i >= 100){
 //   - múltiplo de 5          -> mostre "Buzz" no lugar
 //   - múltiplo de 3 E de 5   -> mostre "FizzBuzz"
 // Dica: teste o caso "3 E 5" PRIMEIRO no if.
+
+for (let index = 20; index > 1; index++) {
+  console.log(index);
+}
